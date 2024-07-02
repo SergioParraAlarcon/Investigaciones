@@ -28,19 +28,21 @@
         h1, h2 {
             color: #4b0082;
         }
-        .project {
+        .project, .experience {
             border: 1px solid #4b0082;
             border-radius: 5px;
             margin: 10px 0;
             padding: 10px;
             background-color: #e6e6fa;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-        .experience {
-            border: 1px solid #4b0082;
-            border-radius: 5px;
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #e6e6fa;
+        .project:hover, .experience:hover {
+            background-color: #dcdcdc;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
         }
         footer {
             background-color: #4b0082;
@@ -51,6 +53,18 @@
             width: 100%;
             bottom: 0;
         }
+        .button {
+            background-color: #4b0082;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #6a0dad;
+        }
     </style>
 </head>
 <body>
@@ -60,26 +74,43 @@
 
     <section>
         <h2>Portafolio de Proyectos</h2>
-        <div class="project">
+        <div class="project" onclick="toggleDetails('project1-details')">
             <h3>Proyecto en RStudio</h3>
-            <p>Descripción del proyecto en RStudio...</p>
+            <div class="details" id="project1-details">
+                <p>Descripción del proyecto en RStudio...</p>
+            </div>
         </div>
-        <div class="project">
+        <div class="project" onclick="toggleDetails('project2-details')">
             <h3>Proyecto en Python</h3>
-            <p>Descripción del proyecto en Python...</p>
+            <div class="details" id="project2-details">
+                <p>Descripción del proyecto en Python...</p>
+            </div>
         </div>
     </section>
 
     <section>
         <h2>Experiencia</h2>
-        <div class="experience">
+        <div class="experience" onclick="toggleDetails('experience-details')">
             <h3>Currículum</h3>
-            <p>Descripción de la experiencia profesional...</p>
+            <div class="details" id="experience-details">
+                <p>Descripción de la experiencia profesional...</p>
+            </div>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 Sergio Luis Parra Alarcón</p>
     </footer>
+
+    <script>
+        function toggleDetails(id) {
+            const element = document.getElementById(id);
+            if (element.style.display === "none" || element.style.display === "") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
